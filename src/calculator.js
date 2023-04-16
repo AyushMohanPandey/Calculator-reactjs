@@ -30,6 +30,7 @@ const Calculator = () => {
         
         const value = calc.slice(0, -1);
         setCalc(value);
+        setResult(value);
     }
 
     
@@ -39,7 +40,7 @@ const Calculator = () => {
     <div className='App'>
         <div className='calculator'>
             <div className="display">
-                {/* {result ? <span>{result}</span> : ''} &nbsp; */}
+                {result ? <span>{result}</span> : ''} &nbsp;
                 {calc || "0"}
             </div>
 
@@ -49,7 +50,7 @@ const Calculator = () => {
                 <button onClick={ () => updateCalc('*')}> * </button>
                 <button onClick={ () => updateCalc('/')}> / </button>
                 <button onClick={ () => deleteLast() }> DEL </button>
-                <button onClick={ () => setCalc("")}> AC</button>
+                <button onClick={ () => {setCalc(""); setResult("")}}> AC</button>
             </div>
 
             <div className='digits'>
